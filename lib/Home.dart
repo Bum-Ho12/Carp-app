@@ -354,7 +354,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Icon(
-              Icons.collections,
+              Icons.perm_media,
               color: Colors.white,
               size: 23,
             ),
