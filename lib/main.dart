@@ -57,31 +57,32 @@ class _TabsState extends State<Tabs> with AutomaticKeepAliveClientMixin {
         body: tabs[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
+          showUnselectedLabels: false,
           elevation: 4,
           unselectedItemColor: Colors.black45,
-          selectedItemColor: Colors.cyan[600],
+          selectedItemColor: Colors.black,
           currentIndex: _currentIndex,
-          selectedFontSize: 10,
-          unselectedFontSize: 10,
+          //selectedFontSize: 10,
+          //unselectedFontSize: 10,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.house_rounded,
-                size: 27,
+                Icons.home_filled,
+                size: 28,
               ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.library_books_rounded,
-                size: 27,
+                Icons.local_library_rounded,
+                size: 28,
               ),
               label: 'Books',
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.folder_rounded,
-                size: 27,
+                size: 28,
               ),
               label: 'Downloads',
             ),
