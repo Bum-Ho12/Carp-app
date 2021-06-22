@@ -98,10 +98,14 @@ class _CardListState extends State<CardList>
             )
           : Icon(
               Icons.image,
+              size: 120,
+              color: Colors.black12,
             );
     } else {
       return Icon(
         Icons.image,
+        size: 120,
+        color: Colors.black12,
       );
     }
   }
@@ -139,7 +143,20 @@ class _CardListState extends State<CardList>
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 if (data.contains('empty')) {
-                  return Text('no data');
+                  return Center(
+                      child: Column(
+                    children: [
+                      Container(
+                          padding: const EdgeInsets.all(8.0),
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: Colors.black38,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Icon(Icons.signal_cellular_off_sharp)),
+                      Text('No internet'),
+                    ],
+                  ));
                 } else {
                   return GridView.builder(
                     scrollDirection: Axis.vertical,

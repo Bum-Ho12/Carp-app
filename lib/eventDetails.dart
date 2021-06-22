@@ -68,7 +68,7 @@ class _EventDetailsState extends State<EventDetails>
                         imageUrl:
                             'http://carp.pythonanywhere.com' + data['image'],
                         height: MediaQuery.of(context).size.height * 0.35,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.contain,
                         //excludeFromSemantics: true,
                       )
                     : Container(

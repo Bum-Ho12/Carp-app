@@ -55,43 +55,50 @@ class _TabsState extends State<Tabs> with AutomaticKeepAliveClientMixin {
       length: 3,
       child: Scaffold(
         body: tabs[_currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 4,
-          unselectedItemColor: Colors.black45,
-          selectedItemColor: Colors.black,
-          currentIndex: _currentIndex,
-          //selectedFontSize: 10,
-          //unselectedFontSize: 10,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_filled,
-                size: 28,
+        bottomNavigationBar: Container(
+          color: Colors.white,
+          height: MediaQuery.of(context).size.height * 0.08,
+          //margin: EdgeInsets.only(bottom: 3),
+          //padding: EdgeInsets.only(top: 0, bottom: 5),
+          child: BottomNavigationBar(
+            backgroundColor: Colors.white,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            elevation: 4,
+            unselectedItemColor: Colors.black45,
+            selectedItemColor: Colors.cyan[600],
+            currentIndex: _currentIndex,
+            //selectedFontSize: 10,
+            //unselectedFontSize: 10,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home_filled,
+                  size: 27,
+                ),
+                label: 'Home',
               ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.local_library_rounded,
-                size: 28,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.local_library_rounded,
+                  size: 27,
+                ),
+                label: 'Books',
               ),
-              label: 'Books',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.folder_rounded,
-                size: 28,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.folder_rounded,
+                  size: 27,
+                ),
+                label: 'Downloads',
               ),
-              label: 'Downloads',
-            ),
-          ],
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
+            ],
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+          ),
         ),
       ),
     );

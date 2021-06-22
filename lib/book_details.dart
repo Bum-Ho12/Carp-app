@@ -44,7 +44,7 @@ class _BookDetailsState extends State<BookDetails>
   //int _total;
   //int _rec;
   bool _connection = true;
-  String progressString = "";
+  String progressString = '';
   bool downloading = false;
   double progress = 0;
   Future<void> connect() async {
@@ -176,7 +176,7 @@ class _BookDetailsState extends State<BookDetails>
           ? CachedNetworkImage(
               imageUrl: 'http://carp.pythonanywhere.com' + data['imageFile'],
               height: MediaQuery.of(context).size.height * 0.35,
-              fit: BoxFit.fill,
+              fit: BoxFit.contain,
               //excludeFromSemantics: true,
             )
           : Container(
@@ -283,7 +283,7 @@ class _BookDetailsState extends State<BookDetails>
                             shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25))),
+                                    borderRadius: BorderRadius.circular(30))),
                           ),
                           child: Icon(Icons.file_download),
                           onPressed: () async {
@@ -301,15 +301,27 @@ class _BookDetailsState extends State<BookDetails>
                     ? Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: LinearProgressIndicator(
-                          color: Colors.cyan[400],
+                          color: Colors.brown[400],
                           minHeight: 8.0,
                           value: progress,
                         ),
                       )
-                    : Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: AutoSizeText(progressString),
-                      )
+                    : AutoSizeText(''),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      padding: const EdgeInsets.all(8.0),
+                      height: 30,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.black38),
+                      child: AutoSizeText(
+                        progressString.isEmpty
+                            ? 'You can read or download this book'
+                            : 'this book has been Downloaded',
+                        style: TextStyle(color: Colors.white),
+                      )),
+                ),
               ],
             )),
       );
@@ -376,6 +388,9 @@ class _BookDetailsState extends State<BookDetails>
           _animated = Tween<Offset>(begin: Offset.zero, end: Offset(0, 0.1))
               .animate(_animationControlled);
           if ('$fil' == '$filename') {
+            setState(() {
+              progressString = 'Downloaded';
+            });
             return FloatingActionButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {

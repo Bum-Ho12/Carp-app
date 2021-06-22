@@ -271,7 +271,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
             height: 50,
             width: 50,
             child: Image.asset('assets/leading.png')),
-        toolbarHeight: 70,
+        toolbarHeight: 60,
         title: AutoSizeText(
           'Carp Kenya',
           style: TextStyle(
@@ -289,7 +289,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
                 MaterialPageRoute(builder: (context) => Info()),
               );
             },
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.info_outlined),
             color: Colors.white,
             iconSize: _iconSize,
           )
@@ -325,45 +325,18 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
   }
 
   _floatingButton() {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.22,
-      height: 45,
-      decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 2.0, // soften the shadow
-              //spreadRadius: 5.0, //extend the shadow
-              offset: Offset(
-                0.5, // Move to right 10  horizontally
-                0.5, // Move to bottom 10 Vertically
-              ),
-            )
-          ],
-          border: Border.all(width: 1, color: Colors.transparent),
-          borderRadius: BorderRadius.circular(40),
-          color: Colors.cyan[600]),
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Album()),
-          );
-        },
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Icon(
-              Icons.perm_media,
-              color: Colors.white,
-              size: 23,
-            ),
-            AutoSizeText(
-              'Album',
-              style: TextStyle(color: Colors.white),
-            )
-          ],
-        ),
+    return FloatingActionButton(
+      backgroundColor: Colors.cyan[600],
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Album()),
+        );
+      },
+      child: Icon(
+        Icons.perm_media,
+        color: Colors.white,
+        size: 23,
       ),
     );
   }
