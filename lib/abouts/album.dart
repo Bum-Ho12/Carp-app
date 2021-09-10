@@ -210,50 +210,52 @@ class _AlbumState extends State<Album>
                   child: Center(
                       child: SizedBox(
                     width: double.infinity,
-                    child: Column(children: [
-                      getImg(data),
-                      ListTile(
-                        title: Container(
-                          child: AutoSizeText(
-                            'Occasion: ${data['description']}',
-                            textAlign: TextAlign.left,
-                            overflow: TextOverflow.fade,
-                            style: TextStyle(
-                              color: Colors.black45,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13.0,
+                    child: InteractiveViewer(
+                      child: Column(children: [
+                        getImg(data),
+                        ListTile(
+                          title: Container(
+                            child: AutoSizeText(
+                              'Occasion: ${data['description']}',
+                              textAlign: TextAlign.left,
+                              overflow: TextOverflow.fade,
+                              style: TextStyle(
+                                color: Colors.black45,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 13.0,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      SlideTransition(
-                        position: _animate,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.resolveWith<Color>(
-                              (Set<MaterialState> states) {
-                                if (states.contains(MaterialState.pressed))
-                                  return Colors.cyan;
-                                return Colors
-                                    .cyan[400]; // Use the component's default.
-                              },
+                        SlideTransition(
+                          position: _animate,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed))
+                                    return Colors.cyan;
+                                  return Colors.cyan[
+                                      400]; // Use the component's default.
+                                },
+                              ),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(25))),
                             ),
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25))),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: AutoSizeText(
+                              'Go back',
+                              key: Key('1'),
+                            ),
                           ),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: AutoSizeText(
-                            'Go back',
-                            key: Key('1'),
-                          ),
-                        ),
-                      )
-                    ]),
+                        )
+                      ]),
+                    ),
                   )),
                 )),
           );
