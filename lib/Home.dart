@@ -87,7 +87,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
       var convertData = convert.jsonDecode(response.body);
       await putData(convertData);
       setState(() {});
-    } catch (SocketException) {
+    } catch (socketException) {
       Toast.show("No internet", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
