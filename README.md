@@ -1,6 +1,5 @@
 # carpkenya
-
-A new Flutter project.
+this is a prototype application that is modelled after an NGO by the name CARP Kenya.
 
 ## Getting Started
 
