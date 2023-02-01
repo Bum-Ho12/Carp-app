@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:io' as io;
-import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:connectivity/connectivity.dart';
@@ -8,13 +7,10 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:carpkenya/book_read.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/widgets.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf_viewer_2/pdfviewer_scaffold.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:pdf_viewer_2/pdfviewer.dart';
-//import 'package:toast/toast.dart';
 
 class BookDetails extends StatefulWidget {
   const BookDetails({

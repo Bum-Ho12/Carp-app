@@ -1,12 +1,8 @@
-//import 'dart:ui';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carpkenya/category/drama.dart';
 import 'package:carpkenya/category/educational.dart';
 import 'package:carpkenya/category/inpirational.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'List.dart';
 import 'category/Unification.dart';
 

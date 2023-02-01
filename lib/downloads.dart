@@ -1,9 +1,7 @@
 import 'dart:io' as io;
 import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf_viewer_2/pdfviewer.dart';
 import 'package:pdf_viewer_2/pdfviewer_scaffold.dart';
